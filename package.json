@@ -1,0 +1,56 @@
+{
+  "name": "dsh-skill-hub",
+  "version": "1.0.0",
+  "description": "dsh 技能市场：聚合 SkillHub + ClawHub 双源搜索技能，站内 README 预览，一键安装/卸载，聊天栏技能选择器，左上角技能中心面板",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./client": "./src/client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "src",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "skill-marketplace",
+    "clawhub",
+    "skillhub"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pn1024/dsh-skill-hub.git"
+  },
+  "homepage": "https://github.com/pn1024/dsh-skill-hub",
+  "bugs": {
+    "url": "https://github.com/pn1024/dsh-skill-hub/issues"
+  },
+  "dsh": {
+    "engines": {
+      "dsh": ">=0.1.1-rc.1"
+    },
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-connection",
+        "@deepseek-ai/dsh-client-ui-slots"
+      ]
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1",
+    "@deepseek-ai/dsh-app-boot": "*",
+    "@deepseek-ai/dsh-client-connection": "*",
+    "@deepseek-ai/dsh-client-ui-slots": "*"
+  }
+}

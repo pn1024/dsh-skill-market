@@ -1,0 +1,15 @@
+# dsh-skill-hub bundle patch: registers the skill hub row.
+# Host half intercepts /api skill-hub/* RPC endpoints.
+# Browser half registers sidebar.footer.action + shell.overlay + conversation.input.left slots.
+- insert:
+    - id: dsh-skill-hub
+      name: 'dsh-skill-hub'
+      config:
+        # Primary source: SkillHub (Tencent China mirror, fast direct access from CN)
+        skillhubApiBase: https://api.skillhub.tencent.com
+        # Fallback source: ClawHub (official, globally accessible)
+        clawhubApiBase: https://clawhub.com
+        # Local skills directory (defaults to $DSH_HOME/skills or ~/.dsh/skills)
+        localSkillsDir: ''
+        # Whether to auto-use SkillHub as primary (CN users: true)
+        preferSkillHub: true
