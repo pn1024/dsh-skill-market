@@ -12,7 +12,9 @@
   "files": [
     "src",
     "cordis.patch.yml",
+    "docs",
     "README.md",
+    "README.en.md",
     "LICENSE"
   ],
   "keywords": [

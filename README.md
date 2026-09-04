@@ -1,26 +1,34 @@
----
-AIGC:
-  ContentProducer: '001191110102MAD55U9H0F10002'
-  ContentPropagator: '001191110102MAD55U9H0F10002'
-  Label: '1'
-  ProduceID: '7a896ef8-6737-435c-9fde-e4b37109aebb'
-  PropagateID: '7a896ef8-6737-435c-9fde-e4b37109aebb'
-  ReservedCode1: '92bac23e-c2cc-4c72-85cd-7ef5414a41f1'
-  ReservedCode2: '92bac23e-c2cc-4c72-85cd-7ef5414a41f1'
----
-
 # dsh-skill-hub
 
-DeepSeek Harness 技能市场插件 —— 聚合 SkillHub + ClawHub 双数据源，站内 README 预览，一键安装/卸载，聊天栏技能选择器，左上角技能中心面板。
+**简体中文** | [English](./README.en.md)
+
+DeepSeek Harness 技能市场插件 —— 聚合 SkillHub + ClawHub 双数据源，站内 README 预览，一键安装/卸载，聊天栏技能选择器，侧边栏技能中心面板。
+
+<p align="center">
+  <img src="docs/screenshots/market.png" alt="技能市场" width="720" />
+</p>
 
 ## 功能
 
 - **搜索技能**：聚合 SkillHub（腾讯云中国镜像，高速直连）和 ClawHub（OpenClaw 官方源）双数据源，支持中文搜索
 - **一键安装/卸载**：安装到 `$DSH_HOME/skills/` 目录，skill-filesystem 自动热发现
 - **站内 README 预览**：无需跳转外部页面，详情页原生渲染 Markdown
-- **技能中心面板**：左上角侧边栏入口 → 全屏弹窗，搜索、安装、浏览、查看一站式
-- **聊天栏快捷入口**：输入栏左侧「⚡ 技能」按钮，快速选择已装技能，自动填入 `/技能名`
+- **Star / 下载量展示**：卡片与详情页均展示 star、下载量、安装量统计
+- **技能中心面板**：侧边栏入口 → 全屏弹窗，搜索、安装、浏览、查看一站式
+- **聊天栏快捷入口**：输入栏「⚡ 技能」按钮，快速选择已装技能，自动填入 `/技能名`
 - **多源容错**：SkillHub 失败自动回退 ClawHub，反之亦然
+
+## 界面预览
+
+| 技能市场 | 技能详情 |
+|---|---|
+| <img src="docs/screenshots/market.png" width="360" /> | <img src="docs/screenshots/detail.png" width="360" /> |
+
+聊天输入栏技能选择器：
+
+<p align="center">
+  <img src="docs/screenshots/picker.png" alt="聊天栏技能选择器" width="480" />
+</p>
 
 ## 安装
 
@@ -44,7 +52,7 @@ dsh-skill-hub/
 │   ├── index.js           # Host 端：RPC intercept (skill-hub/*)
 │   └── client.js          # Browser 端：UI 插槽注册 (sidebar/overlay/input)
 ├── assets/                # 品牌素材（logo 图标等）
-├── fix_logo.cjs           # 工具脚本：从 PNG 重新生成内置 logo base64
+├── docs/screenshots/      # 界面截图
 ├── LICENSE
 └── README.md
 ```
@@ -64,9 +72,9 @@ dsh-skill-hub/
 
 | 插槽 | 功能 |
 |------|------|
-| `sidebar.footer.action` | 侧边栏底部「⚡ 技能中心」入口按钮 |
+| `sidebar.footer.action` | 侧边栏「技能中心」入口按钮 |
 | `shell.overlay` | 技能中心全屏弹窗面板 |
-| `conversation.input.left` | 聊天输入栏左侧「⚡ 技能」快捷选择器 |
+| `conversation.input.left` | 聊天输入栏「⚡ 技能」快捷选择器 |
 
 ## 数据源
 
@@ -93,5 +101,3 @@ dsh-skill-hub/
 ## License
 
 MIT
-
-> AI生成
