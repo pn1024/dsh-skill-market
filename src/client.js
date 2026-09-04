@@ -111,8 +111,9 @@ window.__ModuleLoader__.load({
       border-bottom: 1px solid var(--dsh-border, rgba(255,255,255,0.08)); flex-shrink: 0;
     }
 .dsh-sh-title { font-size: 16px; font-weight: 600; white-space: nowrap; }
-.dsh-sh-search-wrap { flex: 1; position: relative; }
+.dsh-sh-search-wrap { flex: 1 1 0; min-width: 0; position: relative; }
 .dsh-sh-search-input {
+  box-sizing: border-box;
   width: 100%; padding: 8px 12px 8px 34px;
   background: var(--dsh-bg-input, rgba(0,0,0,0.2));
   border: 1px solid var(--dsh-border, rgba(255,255,255,0.1));
@@ -122,6 +123,7 @@ window.__ModuleLoader__.load({
 .dsh-sh-search-input:focus { border-color: var(--dsh-accent, #6366f1); }
 .dsh-sh-search-icon { position: absolute; left: 10px; top: 50%; transform: translateY(-50%); opacity: 0.5; font-size: 14px; }
 .dsh-sh-close {
+  flex: none;
   background: none; border: none; color: inherit; cursor: pointer;
   font-size: 20px; padding: 4px 8px; opacity: 0.6; border-radius: 4px;
 }
