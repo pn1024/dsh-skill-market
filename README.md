@@ -1,4 +1,4 @@
-# dsh-skill-hub
+# dsh-skill-market
 
 **简体中文** | [English](./README.en.md)
 
@@ -33,19 +33,19 @@ DeepSeek Harness 技能市场插件 —— 聚合 SkillHub + ClawHub 双数据�
 ## 安装
 
 ```bash
-dsh plugin --profile web add "github:pn1024/dsh-skill-hub"
+dsh plugin --profile web add "github:pn1024/dsh-skill-market"
 ```
 
 或本地路径安装：
 
 ```bash
-dsh plugin --profile web add "/path/to/dsh-skill-hub"
+dsh plugin --profile web add "/path/to/dsh-skill-market"
 ```
 
 ## 架构
 
 ```
-dsh-skill-hub/
+dsh-skill-market/
 ├── package.json           # dsh.bundle.patch + dsh.client 声明
 ├── cordis.patch.yml       # 插件行注册 + 配置
 ├── src/
@@ -89,8 +89,8 @@ dsh-skill-hub/
 
 ```yaml
 - insert:
-    - id: dsh-skill-hub
-      name: 'dsh-skill-hub'
+    - id: dsh-skill-market
+      name: 'dsh-skill-market'
       config:
         skillhubApiBase: https://api.skillhub.tencent.com
         clawhubApiBase: https://clawhub.com
