@@ -1,4 +1,4 @@
-# dsh-skill-hub
+# dsh-skill-market
 
 [简体中文](./README.md) | **English**
 
@@ -33,19 +33,19 @@ Chat-input skill picker:
 ## Installation
 
 ```bash
-dsh plugin --profile web add "github:pn1024/dsh-skill-hub"
+dsh plugin --profile web add "github:pn1024/dsh-skill-market"
 ```
 
 Or install from a local path:
 
 ```bash
-dsh plugin --profile web add "/path/to/dsh-skill-hub"
+dsh plugin --profile web add "/path/to/dsh-skill-market"
 ```
 
 ## Architecture
 
 ```
-dsh-skill-hub/
+dsh-skill-market/
 ├── package.json           # dsh.bundle.patch + dsh.client declarations
 ├── cordis.patch.yml       # plugin registration + config
 ├── src/
@@ -89,8 +89,8 @@ Configurable in `cordis.patch.yml`:
 
 ```yaml
 - insert:
-    - id: dsh-skill-hub
-      name: 'dsh-skill-hub'
+    - id: dsh-skill-market
+      name: 'dsh-skill-market'
       config:
         skillhubApiBase: https://api.skillhub.tencent.com
         clawhubApiBase: https://clawhub.com
