@@ -1,5 +1,5 @@
 /**
- * dsh-skill-hub — Host half
+ * dsh-skill-market — Host half
  *
  * Intercepts /api skill-hub/* RPC endpoints for the browser half.
  * All RPC endpoints use the Connection RPC intercept mechanism (POST /api/<endpoint>).
@@ -940,7 +940,7 @@ async function dispatch(endpoint, payload, signal, config, ctx) {
 
 // ── Plugin entry ────────────────────────────────────────────────────────
 
-export const name = 'dsh-skill-hub'
+export const name = 'dsh-skill-market'
 export const inject = ['connection', 'skills']
 
 export function apply(ctx, config = {}) {
