@@ -1,5 +1,5 @@
 /**
- * dsh-skill-hub — Browser half (client plugin)
+ * dsh-skill-market — Browser half (client plugin)
  *
  * Registers three UI entry points:
  * 1. Sidebar nav entry — DOM-injected row next to 任务看板 (same pattern as
@@ -14,7 +14,7 @@
  */
 
 window.__ModuleLoader__.load({
-  id: "dsh-skill-hub",
+  id: "dsh-skill-market",
   factory: (require) => {
     var module = { exports: {} };
     var exports = module.exports;
@@ -813,7 +813,7 @@ window.__ModuleLoader__.load({
             function() {
               if (tab === "about") {
                 return h("div", { className: "dsh-sh-detail" },
-                  h("h2", null, "dsh-skill-hub"),
+                  h("h2", null, "dsh-skill-market"),
                   h("p", { style: { opacity: 0.7 } }, "DeepSeek Harness 技能市场插件 — 聚合 SkillHub + ClawHub 双数据源"),
                   h("div", { className: "dsh-sh-detail-section" },
                     h("div", { className: "dsh-sh-detail-section-title" }, "功能"),
