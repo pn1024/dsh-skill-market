@@ -1,9 +1,9 @@
-# dsh-skill-hub bundle patch: registers the skill hub row.
+# dsh-skill-market bundle patch: registers the skill market row.
 # Host half intercepts /api skill-hub/* RPC endpoints.
 # Browser half registers sidebar.footer.action + shell.overlay + conversation.input.left slots.
 - insert:
-    - id: dsh-skill-hub
-      name: 'dsh-skill-hub'
+    - id: dsh-skill-market
+      name: 'dsh-skill-market'
       config:
         # Primary source: SkillHub (Tencent China mirror, fast direct access from CN)
         skillhubApiBase: https://api.skillhub.tencent.com
