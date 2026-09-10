@@ -1,5 +1,5 @@
 {
-  "name": "dsh-skill-hub",
+  "name": "dsh-skill-market",
   "version": "1.0.0",
   "description": "dsh 技能市场：聚合 SkillHub + ClawHub 双源搜索技能，站内 README 预览，一键安装/卸载，聊天栏技能选择器，左上角技能中心面板",
   "type": "module",
@@ -28,11 +28,11 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/pn1024/dsh-skill-hub.git"
+    "url": "https://github.com/pn1024/dsh-skill-market.git"
   },
-  "homepage": "https://github.com/pn1024/dsh-skill-hub",
+  "homepage": "https://github.com/pn1024/dsh-skill-market",
   "bugs": {
-    "url": "https://github.com/pn1024/dsh-skill-hub/issues"
+    "url": "https://github.com/pn1024/dsh-skill-market/issues"
   },
   "dsh": {
     "engines": {
