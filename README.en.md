@@ -2,7 +2,7 @@
 
 [简体中文](./README.md) | **English**
 
-A skill marketplace plugin for DeepSeek Harness — aggregated search across SkillHub + ClawHub, in-app README preview, one-click install/uninstall, a chat-input skill picker, and a sidebar skill hub panel.
+A skill marketplace plugin for DeepSeek Harness — aggregated search across SkillHub + ClawHub, in-app README preview, one-click install/uninstall, a chat-input skill picker, and a sidebar skill market panel.
 
 <p align="center">
   <img src="docs/screenshots/market.png" alt="Skill marketplace" width="720" />
@@ -14,9 +14,20 @@ A skill marketplace plugin for DeepSeek Harness — aggregated search across Ski
 - **One-click install/uninstall**: installs into `$DSH_HOME/skills/`, auto-discovered by skill-filesystem
 - **In-app README preview**: Markdown rendered natively in the detail view, no external redirects
 - **Star / download stats**: stars, downloads and installs shown on cards and in the detail view
-- **Skill hub panel**: sidebar entry → fullscreen overlay for search, install, browse and inspect
+- **Skill market panel**: sidebar entry → fullscreen overlay for search, install, browse and inspect
 - **Chat-input picker**: a "⚡ Skills" button in the input bar for quick insertion of `/skill-name`
 - **Source failover**: falls back to ClawHub when SkillHub fails, and vice versa
+
+## Design principle: never modifies host UI
+
+This plugin **only adds its own UI elements; it never touches any DSH host (official) UI**:
+
+- It does not replace or hide the sidebar's official whale logo or the `deepseek harness` wordmark
+- It does not modify the browser favicon
+- It does not rename or hide any host-provided entry, including the built-in "Skill Center" (skill explorer)
+- It does not use a MutationObserver to rename/replace host elements
+
+The plugin's own sidebar entry is always labelled "**Skill Market**", which is naturally distinct from the official "Skill Center" (which manages **installed** skills): one **installs** skills, the other **manages** them. If you see two identically-named entries, you are on an old version — please upgrade to `>=1.0.1`.
 
 ## Screenshots
 
@@ -51,7 +62,6 @@ dsh-skill-market/
 ├── src/
 │   ├── index.js           # Host side: RPC intercept (skill-hub/*)
 │   └── client.js          # Browser side: UI slot registration (sidebar/overlay/input)
-├── assets/                # brand assets (logo icons, etc.)
 ├── docs/screenshots/      # UI screenshots
 ├── LICENSE
 └── README.md
@@ -72,8 +82,8 @@ dsh-skill-market/
 
 | Slot | Description |
 |------|-------------|
-| `sidebar.footer.action` | "Skill Hub" entry button in the sidebar |
-| `shell.overlay` | Fullscreen skill hub panel |
+| `sidebar.footer.action` | "Skill Market" entry button in the sidebar (additive only; official entries untouched) |
+| `shell.overlay` | Fullscreen skill market panel |
 | `conversation.input.left` | "⚡ Skills" quick picker in the chat input bar |
 
 ## Data sources

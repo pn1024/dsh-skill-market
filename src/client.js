@@ -789,7 +789,7 @@ window.__ModuleLoader__.load({
         h("div", { className: "dsh-skill-hub-panel" + (isLight ? " light" : ""), onClick: function(e) { e.stopPropagation(); } },
           // Header
           h("div", { className: "dsh-sh-header" },
-            h("div", { className: "dsh-sh-title" }, "⚡ 技能中心"),
+            h("div", { className: "dsh-sh-title" }, "⚡ 技能市场"),
             h("div", { className: "dsh-sh-search-wrap" },
               h("span", { className: "dsh-sh-search-icon" }, "🔍"),
               h("input", {
@@ -1061,11 +1061,11 @@ window.__ModuleLoader__.load({
       entry.setAttribute('data-dsh-plugin', 'skill-hub');
       entry.setAttribute('data-dsh-part', 'sidebar-entry');
       entry.className = 'dsh-sh-nav-entry';
-      entry.setAttribute('aria-label', '技能中心');
-      entry.setAttribute('title', '技能中心');
+      entry.setAttribute('aria-label', '技能市场');
+      entry.setAttribute('title', '技能市场：从 SkillHub / ClawHub 搜索并安装技能');
       entry.innerHTML =
         '<span class="dsh-sh-nav-entry-icon">' + NAV_ICON + '</span>' +
-        '<span class="dsh-sh-nav-entry-label">技能中心</span>';
+        '<span class="dsh-sh-nav-entry-label">技能市场</span>';
       entry.addEventListener('click', onToggle);
       return entry;
     }
@@ -1149,53 +1149,15 @@ window.__ModuleLoader__.load({
       };
     }
 
-    // ── Official skill-explorer entry de-duplication ────────────────
-    // The host ships its own "技能中心" entry (dsh-client-ui-skill-explorer),
-    // which manages LOADED skills (enable/disable/create/delete) and collides
-    // by name with our market entry that INSTALLS skills from SkillHub/ClawHub.
-    // Both are useful, so instead of hiding one we rename the official row to
-    // "技能管理" — the two rows become self-explanatory at a glance.
-    var OFFICIAL_LABEL_SELECTOR = 'span[class*="entryLabel"]';
-    var OFFICIAL_NEW_LABEL = '技能管理';
-
-    function retitleOfficialSkillEntry() {
-      var labels = document.querySelectorAll(OFFICIAL_LABEL_SELECTOR);
-      for (var i = 0; i < labels.length; i++) {
-        var label = labels[i];
-        // never touch our own market entry
-        if (label.closest('[data-dsh-skillhub-entry]')) continue;
-        if ((label.textContent || '').trim() !== '技能中心') continue;
-        label.textContent = OFFICIAL_NEW_LABEL;
-        label.setAttribute('data-dsh-retitled', '1');
-        var btn = label.closest('button');
-        if (btn) {
-          btn.setAttribute('title', '技能管理：浏览与管理已加载的 skill');
-          btn.setAttribute('aria-label', '技能管理');
-        }
-      }
-    }
-
-    /** Mount the retitle with React re-render self-healing. */
-    function mountOfficialRetitle() {
-      retitleOfficialSkillEntry();
-      var scheduled = false;
-      var observer = new MutationObserver(function () {
-        if (scheduled) return;
-        scheduled = true;
-        (window.requestAnimationFrame || function (fn) { setTimeout(fn, 16); })(function () {
-          scheduled = false;
-          retitleOfficialSkillEntry();
-        });
-      });
-      observer.observe(document.documentElement, { childList: true, subtree: true, characterData: true });
-    }
-
     // ── Plugin entry ─────────────────────────────────────────────────
+    // Design principle: this plugin NEVER modifies host UI. It does not touch
+    // the official logo, wordmark, favicon, or the label of any host-provided
+    // entry — including the host's own "技能中心" (skill explorer) row. It only
+    // adds its own, distinctly-labelled "技能市场" entry below the family block.
 
     var inject = ["slots", "connection"];
     function apply(ctx) {
       injectCSS();
-      mountOfficialRetitle();
       var rpc = ctx.get("connection").rpc;
 
       // 1. Sidebar nav entry — DOM row after 任务看板 (task-board family pattern)
